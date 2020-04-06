@@ -1,0 +1,134 @@
+
+
+// 1.closure function
+
+myClosureDemo(5)(6)(7);
+
+function myClosureDemo(a) {
+    return (b) => {
+        return (c) => {
+            let total = a+b+c; 
+            console.log("Program 1 output ==> Total : "+total);
+            return total;
+        }
+    }
+}
+
+
+
+
+
+// 2.Sorting Array of objects
+
+var empObjArray = [
+  {
+    empId: '1',
+    empName: 'shivam',
+    empSkillSet: 'novice Java developer',
+    empJobBand: '2'
+  },
+  {
+    empId: '111',
+    empName: 'sudarshan',
+    empSkillSet: 'React JS',
+    empJobBand: '2'
+  },
+  {
+    empId: '4',
+    empName: 'ranjith',
+    empSkillSet: 'React JS',
+    empJobBand: '1.1'
+  },
+  {
+    empId: '98',
+    empName: 'rajiv',
+    empSkillSet: 'management',
+    empJobBand: '3.2'
+  },
+  {
+    empId: '2',
+    empName: 'sachin',
+    empSkillSet: 'cricket',
+    empJobBand: '10'
+  },
+  {
+   empId: '2',
+    empName: 'sachin',
+    empSkillSet: 'cricket',
+    empJobBand: '10'
+  }
+];
+
+sortEmpDetails({sortBy:'empId'});
+
+function sortEmpDetails(sortType){
+switch(sortType.sortBy){
+case 'empId' : empObjArray.sort((a,b) => (a.empId > b.empId) ? 1 : ((b.empId > a.empId) ? -1 : 0)); break;
+case 'empName' : empObjArray.sort((a,b) => (a.empName > b.empName) ? 1 : ((b.empName > a.empName) ? -1 : 0)); break;
+}
+
+console.log("Program 2 output ==> Array sorting by "+sortType.sortBy+" : "+JSON.stringify(empObjArray));
+}
+
+
+
+
+
+
+var empObj = empObjArray .map(JSON.stringify); 
+var empSet = new Set(empObj); 
+var empNewArray = Array.from(empSet ).map(JSON.parse); 
+      
+console.log("Program 2.1 output ==> After removing duplicate objects in array : "+JSON.stringify(empNewArray)); 
+
+
+
+var originalArray = [1,2,3,4,2,2,2,24,13,143,3412,43,35425,235,523,325,3]
+
+//Remove duplicates using set
+var uniqueArray = Array.from(new Set(originalArray ))
+console.log("Program 2.1 output ==> New array after deleting duplicates : "+uniqueArray );
+
+
+//find index of 35425
+var idx = originalArray.indexOf(35425);
+console.log("Program 2.2 output ==> Index of 35425 : "+idx);
+
+
+
+
+
+
+//3.shallow and deep copy.
+
+let object1 ={
+  "expanded": false,
+  "name": "3",
+  "fields": [
+    {
+      "columnname": "projectName",
+      "datatype": "String",
+     	 "nullable": "true"
+    },
+    {
+      "columnname": "artifactId",
+      "datatype": "String",
+      "nullable": "true"
+    },
+    {
+      "columnname": "groupId",
+      "datatype": "String",
+      "nullable": "true"
+    }
+  ]
+}
+
+//shallow copy
+let result = object1;
+console.log("Program 3 output ==> shallow copy "+JSON.stringify(result));
+
+//Deep copy
+result = {...object1}  // or  Object.assign({},result,object1);
+console.log("Program 3 output ==> deep copy "+JSON.stringify(result));
+
+
