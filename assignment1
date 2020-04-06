@@ -85,7 +85,7 @@ console.log("Program 2.1 output ==> After removing duplicate objects in array : 
 
 var originalArray = [1,2,3,4,2,2,2,24,13,143,3412,43,35425,235,523,325,3]
 
-//Remove duplicates using set
+//Remove duplicates 
 var uniqueArray = Array.from(new Set(originalArray ))
 console.log("Program 2.1 output ==> New array after deleting duplicates : "+uniqueArray );
 
